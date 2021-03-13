@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="aplicacao" ng-controller="salario">
+
+
+<label for="salarioM"> salario </label>
+<input type="text" ng-model="lsalario" id="salarioM">
+<br><br>
+<label for="valorPercent"> reajuste </label>
+<input type="text" ng-model="vPercent" id="valorPercent">
+
+<br><br>
+Salario: {{salario}}
+<br><br>
+Reajuste de: {{reajuste}}%
+<br><br>
+Salario Novo: {{novosalario}}
+<br><br>
+<input type="button" value="calcular" ng-click="calculo()">
+</div>
+
+<script>
+var app = angular.module("aplicacao", []);
+app.controller("salario",function($scope){
+
+$scope.calculo = function(){
+
+$scope.salario = (parseFloat($scope.lsalario));
+$scope.reajuste = (parseFloat($scope.vPercent));
+$scope.novosalario = (parseFloat($scope.lsalario + (parseFloat($scope.lsalario * ($scope.vPercent /100)))));
+
+}
+});
+</script>
+
+</body>
+</html>

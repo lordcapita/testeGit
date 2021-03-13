@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>;
+<body>
+
+<div ng-app="aplicacao" ng-controller="retangulo">
+
+<h1> Calculo da área do Retângulo </h1>
+<label for="base"> Digite o valor para a Base do Retângulo</label>
+<input type="text" ng-model="vbase" id="base">
+<br><br>
+<label for="altura"> Digite o valor para a Altura do Retângulo</label>
+<input type="text" ng-model="valtura" id="altura">
+<br><br>
+Resultado: {{resultado}}
+<br><br>
+<input type="button" value="calcular" ng-click="calculo()">
+</div>
+
+<script>
+var app = angular.module("aplicacao", []);
+app.controller("retangulo",function($scope){
+
+$scope.calculo = function(){
+$scope.resultado = ($scope.vbase * $scope.valtura);
+}
+
+$scope.soma = function(){
+//digite aqui o código da sua função.
+}
+
+});
+</script>
+
+</body>
+</html>

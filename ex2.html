@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="aplicacao" ng-controller="municipio">
+
+
+<label for="totaleleitor"> Total eleitores </label>
+<input type="text" ng-model="veleitor" id="totaleleitor">
+<br><br>
+<label for="votosBranco"> Votos em Branco</label>
+<input type="text" ng-model="vVotosB" id="votosbranco">
+<br><br>
+<label for="votosValidos"> Votos Validos </label>
+<input type="text" ng-model="vVotosV" id="votosValidos">
+<br><br>
+Totais de Votos: {{totaisdevotos}}
+<br><br>
+Percentual votos em Branco: {{percentual}}%
+<br><br>
+Percentual votos Validos: {{percentual2}}%
+<br><br>
+<input type="button" value="calcular" ng-click="calculo()">
+</div>
+
+<script>
+var app = angular.module("aplicacao", []);
+app.controller("municipio",function($scope){
+
+$scope.calculo = function(){
+
+$scope.totaisdevotos = ($scope.veleitor);
+$scope.percentual = ((parseFloat($scope.vVotosB *100)) / (parseFloat($scope.veleitor)));
+$scope.percentual2 = ((parseFloat($scope.vVotosV *100)) / (parseFloat($scope.veleitor)));
+
+}
+});
+</script>
+
+</body>
+</html>
